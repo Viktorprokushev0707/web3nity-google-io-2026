@@ -1,0 +1,1058 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google I/O 2026 — главные AI-анонсы</title>
+  <meta name="description" content="Большой разбор главных AI-анонсов Google I/O 2026: Gemini Omni, Gemini 3.5 Flash, Spark, Daily Brief, Google Pics, AI Mode, Antigravity, YouTube и умные очки.">
+  <meta property="og:title" content="Google I/O 2026 — главные AI-анонсы">
+  <meta property="og:description" content="Что Google показал, что это значит на практике, где попробовать и кому будет доступно.">
+  <meta property="og:image" content="assets/io-2026-hero.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration-color: var(--rule); text-underline-offset: 4px; }
+    a:hover { text-decoration-color: var(--rust); }
+
+    :root {
+      --bg: #F6F4EA;
+      --bg-card: #FDFCF7;
+      --bg-raised: #FFFFFF;
+      --ink: #272044;
+      --ink-soft: #3B3559;
+      --ink-muted: #6B6481;
+      --rule: #E4DFD0;
+      --rule-soft: #EFEBDD;
+      --rust: #EB6B2F;
+      --rust-dark: #B84B18;
+      --rust-soft: #FFF4EE;
+      --rust-tint: rgba(235, 107, 47, .09);
+      --ochre: #B88720;
+      --olive: #5A6B1F;
+      --plum: #7A2242;
+      --blue: #2457C5;
+      --cyan: #007F8B;
+      --f-display: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+      --f-body: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+      --f-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+      --gutter: clamp(20px, 4vw, 64px);
+      --max: 1360px;
+      --radius: 14px;
+      --radius-sm: 10px;
+      --shadow-soft: 0 4px 24px rgba(39, 32, 68, .06);
+      --shadow-md: 0 12px 40px -12px rgba(39, 32, 68, .15);
+      --ease: cubic-bezier(.16, 1, .3, 1);
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 80% 60% at 16% -10%, rgba(235, 107, 47, .08), transparent 62%),
+        radial-gradient(ellipse 70% 50% at 100% 32%, rgba(39, 32, 68, .055), transparent 62%),
+        linear-gradient(90deg, rgba(39,32,68,.035) 1px, transparent 1px) 0 0 / 28px 28px,
+        linear-gradient(0deg, rgba(39,32,68,.028) 1px, transparent 1px) 0 0 / 28px 28px,
+        var(--bg);
+      color: var(--ink);
+      font-family: var(--f-body);
+      font-size: 16px;
+      line-height: 1.6;
+      letter-spacing: -.005em;
+      font-feature-settings: "cv11", "ss01";
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--ink);
+      font-family: var(--f-display);
+      font-weight: 800;
+      letter-spacing: -.035em;
+      line-height: 1.05;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--rule);
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: saturate(1.4) blur(8px);
+      -webkit-backdrop-filter: saturate(1.4) blur(8px);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px var(--gutter);
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      font-family: var(--f-display);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -.015em;
+      white-space: nowrap;
+    }
+    .nav-brand em {
+      color: var(--ink-muted);
+      font-style: normal;
+      font-weight: 500;
+    }
+    .nav-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--rust);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--rust) 20%, transparent);
+    }
+    .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-family: var(--f-mono);
+      font-size: 11.5px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .nav-list a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    .nav-list a:hover, .nav-list a.is-active { color: var(--rust); }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: clamp(72px, 8vw, 126px) 0;
+    }
+    .eyebrow {
+      color: var(--ink-muted);
+      font-family: var(--f-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: clamp(24px, 4vw, 60px);
+      align-items: end;
+      margin-bottom: clamp(32px, 5vw, 68px);
+      border-top: 2px solid var(--ink);
+      padding-top: 22px;
+    }
+    .section-num {
+      color: var(--rust);
+      font-family: var(--f-display);
+      font-size: clamp(44px, 6vw, 76px);
+      font-weight: 900;
+      letter-spacing: -.05em;
+      line-height: .88;
+    }
+    .section-title {
+      font-size: clamp(30px, 4.5vw, 58px);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      line-height: 1.02;
+      text-transform: uppercase;
+    }
+    .section-title em { color: var(--rust); font-style: normal; }
+    .section-sub {
+      max-width: 78ch;
+      margin-top: 14px;
+      color: var(--ink-muted);
+      font-family: var(--f-mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      line-height: 1.55;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(58px, 8vw, 118px) 0 clamp(54px, 6vw, 86px);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, .72fr);
+      gap: clamp(36px, 5vw, 86px);
+      align-items: center;
+    }
+    .hero .eyebrow-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 28px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .hero h1 {
+      max-width: 980px;
+      margin: 8px 0 30px;
+      font-size: clamp(54px, 9.4vw, 150px);
+      font-weight: 900;
+      letter-spacing: -.05em;
+      line-height: .91;
+      text-transform: uppercase;
+    }
+    .hero h1 em { color: var(--rust); font-style: normal; }
+    .hero-lede {
+      max-width: 68ch;
+      color: var(--ink-soft);
+      font-size: clamp(18px, 1.7vw, 22px);
+      line-height: 1.55;
+    }
+    .hero-lede p + p { margin-top: 14px; }
+    .hero-panel {
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      box-shadow: var(--shadow-md);
+    }
+    .hero-panel img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-bottom: 1px solid var(--rule);
+      filter: saturate(.92) contrast(1.02);
+    }
+    .hero-panel-body { padding: 26px 28px 28px; }
+    .hero-panel h3 {
+      margin: 12px 0 10px;
+      font-size: 26px;
+      letter-spacing: -.03em;
+    }
+    .hero-panel p {
+      color: var(--ink-soft);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 52px;
+    }
+    .metric {
+      display: flex;
+      min-height: 168px;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      padding: 26px 26px 24px;
+      box-shadow: var(--shadow-soft);
+      transition: transform .35s var(--ease), box-shadow .35s ease;
+    }
+    .metric:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .metric-label {
+      color: var(--ink-muted);
+      font-family: var(--f-mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .metric-value {
+      color: var(--ink);
+      font-family: var(--f-display);
+      font-size: clamp(34px, 4.8vw, 58px);
+      font-weight: 900;
+      letter-spacing: -.045em;
+      line-height: .96;
+    }
+    .metric-hint {
+      color: var(--ink-muted);
+      font-family: var(--f-mono);
+      font-size: 11.5px;
+      line-height: 1.45;
+    }
+
+    .chapter {
+      border-top: 1px solid var(--rule);
+      padding: clamp(44px, 5.8vw, 86px) 0;
+    }
+    .chapter:first-of-type { border-top: 0; padding-top: 0; }
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: minmax(120px, .28fr) minmax(0, 1fr);
+      gap: clamp(24px, 5vw, 72px);
+    }
+    .chapter-aside {
+      position: sticky;
+      top: 92px;
+      align-self: start;
+    }
+    .chapter-num {
+      color: var(--rust);
+      font-family: var(--f-display);
+      font-size: clamp(54px, 8vw, 104px);
+      font-weight: 900;
+      letter-spacing: -.06em;
+      line-height: .82;
+    }
+    .chapter-label {
+      margin-top: 14px;
+      color: var(--ink-muted);
+      font-family: var(--f-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      line-height: 1.55;
+      text-transform: uppercase;
+    }
+    .chapter h2 {
+      max-width: 940px;
+      margin-bottom: 18px;
+      font-size: clamp(34px, 5vw, 74px);
+      font-weight: 900;
+      letter-spacing: -.045em;
+      line-height: .98;
+    }
+    .chapter-lead {
+      max-width: 74ch;
+      margin-bottom: 28px;
+      color: var(--ink-soft);
+      font-size: clamp(18px, 1.6vw, 22px);
+      line-height: 1.55;
+    }
+    .script {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, .36fr);
+      gap: clamp(24px, 4vw, 52px);
+      align-items: start;
+    }
+    .script-main {
+      max-width: 82ch;
+    }
+    .script-main p {
+      color: var(--ink-soft);
+      font-size: 17px;
+      line-height: 1.68;
+    }
+    .script-main p + p { margin-top: 16px; }
+    .script-main strong { color: var(--ink); font-weight: 800; }
+    .script-main em {
+      color: var(--rust-dark);
+      font-style: normal;
+      font-weight: 750;
+    }
+    .side-stack {
+      display: grid;
+      gap: 14px;
+    }
+    .callout {
+      border: 1px solid color-mix(in srgb, var(--rust) 20%, transparent);
+      border-left: 4px solid var(--rust);
+      border-radius: var(--radius);
+      background: var(--rust-soft);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-soft);
+    }
+    .callout .eyebrow { color: var(--rust); margin-bottom: 10px; }
+    .callout p {
+      color: var(--ink);
+      font-size: 15.5px;
+      font-weight: 650;
+      line-height: 1.5;
+    }
+    .source-card {
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      padding: 22px 24px 24px;
+      box-shadow: var(--shadow-soft);
+    }
+    .source-card h4 {
+      margin-bottom: 14px;
+      color: var(--rust);
+      font-family: var(--f-mono);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .link-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: var(--bg-raised);
+      padding: 8px 11px;
+      color: var(--ink-soft);
+      font-family: var(--f-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform .2s ease, border-color .2s ease, color .2s ease;
+    }
+    .link-list a::after { content: "↗"; color: var(--rust); }
+    .link-list a:hover {
+      transform: translateY(-1px);
+      border-color: var(--rust);
+      color: var(--rust-dark);
+    }
+    .mini-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .mini-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--rule-soft);
+      color: var(--ink-soft);
+      font-size: 14.5px;
+      line-height: 1.45;
+    }
+    .mini-item b {
+      color: var(--rust);
+      font-family: var(--f-mono);
+      font-size: 11px;
+      letter-spacing: .08em;
+    }
+    .quote {
+      margin: 26px 0;
+      border-left: 4px solid var(--ink);
+      background: var(--bg-card);
+      padding: 20px 24px;
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 750;
+      line-height: 1.45;
+      box-shadow: var(--shadow-soft);
+    }
+    .visual-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 34px 0;
+    }
+    .visual-strip figure {
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      box-shadow: var(--shadow-soft);
+    }
+    .visual-strip img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      filter: saturate(.95);
+    }
+    .visual-strip figcaption {
+      padding: 12px 14px;
+      color: var(--ink-muted);
+      font-family: var(--f-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .subscribe-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--rust);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-soft);
+    }
+    .subscribe-box h2 {
+      margin: 0 0 6px;
+      font-size: clamp(22px, 2.4vw, 30px);
+      letter-spacing: -.03em;
+    }
+    .subscribe-box p {
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 14.5px;
+      line-height: 1.45;
+    }
+    .subscribe-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .sources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+    .source-link {
+      min-height: 112px;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      background: var(--bg-card);
+      padding: 20px 22px;
+      box-shadow: var(--shadow-soft);
+      text-decoration: none;
+      transition: transform .3s var(--ease), box-shadow .3s ease, border-color .3s ease;
+    }
+    .source-link:hover {
+      transform: translateY(-2px);
+      border-color: var(--rust);
+      box-shadow: var(--shadow-md);
+    }
+    .source-link span {
+      display: block;
+      color: var(--rust);
+      font-family: var(--f-mono);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .source-link strong {
+      display: block;
+      margin-top: 10px;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .dot-nav {
+      position: fixed;
+      right: 22px;
+      top: 50%;
+      z-index: 15;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transform: translateY(-50%);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--bg-card) 82%, transparent);
+      padding: 18px 11px;
+      box-shadow: 0 12px 40px -12px rgba(22, 19, 12, .18);
+      backdrop-filter: blur(10px) saturate(1.4);
+      -webkit-backdrop-filter: blur(10px) saturate(1.4);
+    }
+    .dot-btn {
+      position: relative;
+      display: block;
+      width: 13px;
+      height: 13px;
+      border: 1.5px solid var(--ink-muted);
+      border-radius: 50%;
+      background: transparent;
+      text-decoration: none;
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+    .dot-btn:hover, .dot-btn.is-active {
+      border-color: var(--rust);
+      background: var(--rust);
+      transform: scale(1.12);
+    }
+    .dot-label {
+      position: absolute;
+      right: calc(100% + 14px);
+      top: 50%;
+      transform: translateY(-50%) translateX(6px);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      background: var(--bg-raised);
+      padding: 6px 10px;
+      color: var(--ink);
+      font-family: var(--f-mono);
+      font-size: 10px;
+      letter-spacing: .14em;
+      opacity: 0;
+      pointer-events: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .dot-btn:hover .dot-label { opacity: 1; transform: translateY(-50%); }
+
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .75s ease, transform .75s var(--ease);
+    }
+    .js .reveal.is-in { opacity: 1; transform: none; }
+
+    @media (max-width: 1100px) {
+      .hero-grid, .script { grid-template-columns: 1fr; }
+      .metric-grid, .sources-grid { grid-template-columns: repeat(2, 1fr); }
+      .chapter-aside { position: static; }
+      .chapter-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 860px) {
+      .nav-list, .dot-nav { display: none; }
+      .hero h1 { font-size: clamp(44px, 12vw, 86px); line-height: .98; }
+      .metric-grid, .visual-strip, .sources-grid { grid-template-columns: 1fr; }
+      .section-head { grid-template-columns: 1fr; gap: 18px; align-items: start; }
+      .script-main p { font-size: 16px; }
+      .nav-brand em { display: none; }
+      .subscribe-box { align-items: flex-start; flex-direction: column; }
+      .subscribe-links { justify-content: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+      }
+      .js .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#top" aria-label="В начало">
+        <span class="nav-dot" aria-hidden="true"></span>
+        Google I/O 2026 <em>AI-анонсы</em>
+      </a>
+      <nav class="nav-list" aria-label="Навигация">
+        <a href="#omni">Omni</a>
+        <a href="#flash">3.5 Flash</a>
+        <a href="#spark">Spark</a>
+        <a href="#pics">Pics</a>
+        <a href="#search">AI Mode</a>
+        <a href="#youtube">YouTube</a>
+        <a href="#glasses">Очки</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="dot-nav" aria-label="Быстрая навигация">
+    <a class="dot-btn" href="#omni"><span class="dot-label">Omni</span></a>
+    <a class="dot-btn" href="#flash"><span class="dot-label">Gemini 3.5</span></a>
+    <a class="dot-btn" href="#spark"><span class="dot-label">Spark</span></a>
+    <a class="dot-btn" href="#daily"><span class="dot-label">Daily Brief</span></a>
+    <a class="dot-btn" href="#voice"><span class="dot-label">Голос</span></a>
+    <a class="dot-btn" href="#pics"><span class="dot-label">Pics</span></a>
+    <a class="dot-btn" href="#search"><span class="dot-label">AI Mode</span></a>
+    <a class="dot-btn" href="#antigravity"><span class="dot-label">Antigravity</span></a>
+    <a class="dot-btn" href="#youtube"><span class="dot-label">YouTube</span></a>
+    <a class="dot-btn" href="#glasses"><span class="dot-label">Очки</span></a>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <h1>Главные <em>AI-анонсы</em> Google I/O 2026</h1>
+            <div class="hero-lede">
+              <p><strong>Google провел свою главную AI-презентацию I/O 2026</strong> и показал там генератор видео Gemini Omni, новое семейство моделей Gemini 3.5, персонального агента Gemini Spark, обновленный AI-поиск, умные очки, AI-редактор картинок и новые функции для YouTube.</p>
+              <p>В общем, кучу всего интересного. Ниже — самое важное: что именно показали, что это значит на практике, где это можно попробовать и кому все это будет доступно. Начинаем.</p>
+            </div>
+          </div>
+          <aside class="hero-panel reveal">
+            <img src="assets/io-2026-hero.png" alt="Обложка Google I/O 2026">
+            <div class="hero-panel-body">
+              <span class="eyebrow">Главная рамка</span>
+              <h3>AI становится не отдельным приложением, а слоем внутри всех продуктов Google.</h3>
+              <p>Видео, поиск, YouTube, Workspace, разработка и устройства начинают собираться вокруг одной идеи: вы формулируете задачу, а система помогает довести ее до результата.</p>
+            </div>
+          </aside>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" aria-label="Анонсы">
+      <div class="wrap">
+        <article class="chapter reveal" id="omni">
+          <div class="chapter-grid">
+            <aside class="chapter-aside">
+              <div class="chapter-num">01</div>
+              <div class="chapter-label">Самый зрелищный анонс</div>
+            </aside>
+            <div>
+              <h2>Gemini Omni</h2>
+              <p class="chapter-lead">Самый зрелищный анонс — Gemini Omni. Это новая модель Google для генерации и редактирования видео.</p>
+              <div class="script">
+                <div class="script-main">
+                  <p>Omni — это не просто видеогенератор, а попытка сделать <strong>Nano Banana для видео</strong>. Модель работает с разными типами данных: на вход можно дать промпт, картинку, уже готовое видео, аудио или образец голоса. А дальше модель собирает из этого новый ролик или меняет существующий.</p>
+                  <p>Например: перенеси героя в другую локацию. Замени фон. Оставь движение, но поменяй стиль. Добавь другой объект. Сделай камеру ближе. Продолжи сцену. Или возьми вот эту картинку как референс и встрои ее в видео.</p>
+                  <p>И дальше вы можете итерациями это видео дорабатывать и редактировать. Модель должна держать в голове все изменения, чтобы сцена, персонажи и детали оставались консистентными.</p>
+                  <p>Google отдельно говорит, что Omni использует знания Gemini о реальном мире. То есть модель должна лучше понимать физику, движение объектов, логику сцены, культурный и научный контекст. Если вы генерируете видео, где стеклянный шар катится и во что-то врезается, сама физика в этом видео должна соблюдаться. Ну, вы все сами видите на экране.</p>
+                  <div class="quote">Если сравнивать с китайской Seedance 2.0, я бы сказала так: качество картинки и креативность сильнее у китайской модели, а вот понимание промпта и запроса мне больше понравилось у Omni.</div>
+                  <p>Первая версия называется <strong>Gemini Omni Flash</strong>. Она раскатывается в Gemini app и Google Flow для подписчиков Google AI Plus, Pro и Ultra. А еще ее обещают встроить в ближайшее время в YouTube Shorts Remix и YouTube Create — там доступ должен быть бесплатным. Так что обновляйте свои приложения.</p>
+                  <p>Здесь важно вот что: Google тащит AI-видео прямо в YouTube, поэтому сразу усиливает и проверку происхождения контента. Для этого расширяют SynthID и Content Credentials — водяные знаки и метки, которые помогают понять, где реальная съемка, а где видео, картинка или звук были созданы или изменены нейросетью.</p>
+                  <p>Это нужно, чтобы платформы могли сами помечать видео как сгенерированное или измененное AI. Такая вот борьба с AI-слопом. Работает это пока, по всей видимости, не очень хорошо. Но инициатива хорошая.</p>
+                </div>
+                <aside class="side-stack">
+                  <div class="source-card">
+                    <h4>Где читать / пробовать</h4>
+                    <div class="link-list">
+                      <a href="https://deepmind.google/models/model-cards/gemini-omni-flash/" target="_blank" rel="noreferrer">Model card</a>
+                      <a href="https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/" target="_blank" rel="noreferrer">Gemini app</a>
+                      <a href="https://blog.youtube/news-and-events/youtube-news-google-io-2026/" target="_blank" rel="noreferrer">YouTube Remix</a>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter reveal" id="flash">
+          <div class="chapter-grid">
+            <aside class="chapter-aside">
+              <div class="chapter-num">02</div>
+              <div class="chapter-label">Новое семейство моделей</div>
+            </aside>
+            <div>
+              <h2>Gemini 3.5 Flash</h2>
+              <p class="chapter-lead">На презентации представили новую модель Gemini 3.5 Flash. Это первая модель из нового семейства Gemini 3.5.</p>
+              <div class="script">
+                <div class="script-main">
+                  <p>В чем ее особенность? Она специально обучалась под <strong>длинные агентские сценарии</strong>. Gemini 3.5 Flash дали задачу: собрать работающую операционную систему с нуля. И за 12 часов она действительно написала систему — от базовой архитектуры до инструментов, зависимостей и памяти. А потом на этой системе смогли запустить Doom.</p>
+                  <p>Пример достаточно бесполезный. Но Google этим хотел показать, что модель может долго работать над сложной инженерной задачей: разбивать ее на этапы, писать код, проверять себя и двигаться дальше, пока не достигнет цели.</p>
+                  <p>И именно вокруг этого сейчас идет большая гонка среди всех компаний. Новую модель Google мы пока никак не оцениваем. Нужно хотя бы несколько недель, чтобы появились результаты тестов и впечатление после реального использования.</p>
+                  <p>Gemini 3.5 Flash уже начинает появляться в приложении Gemini на телефоне и AI Mode в Google Search. Проверьте актуальный список моделей у себя. Разработчикам она доступна через Gemini API, Google AI Studio и Antigravity — это программа, которая позволяет вайб-кодить и оркестрировать агентов. Про нее отдельно ниже.</p>
+                  <p>Более мощную модель <strong>Gemini 3.5 Pro</strong> Google обещает представить в следующем месяце.</p>
+                </div>
+                <aside class="side-stack">
+                  <div class="source-card">
+                    <h4>Где читать / пробовать</h4>
+                    <div class="link-list">
+                      <a href="https://deepmind.google/models/model-cards/gemini-3-5-flash/" target="_blank" rel="noreferrer">Model card</a>
+                      <a href="https://aistudio.google.com/" target="_blank" rel="noreferrer">AI Studio</a>
+                      <a href="https://antigravity.google/" target="_blank" rel="noreferrer">Antigravity</a>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter reveal" id="spark">
+          <div class="chapter-grid">
+            <aside class="chapter-aside">
+              <div class="chapter-num">03</div>
+              <div class="chapter-label">Персональный агент</div>
+            </aside>
+            <div>
+              <h2>Gemini Spark</h2>
+              <p class="chapter-lead">Еще один важный анонс — Gemini Spark. Это персональный AI-агент внутри Gemini.</p>
+              <div class="script">
+                <div class="script-main">
+                  <p>Он нужен, чтобы разбирать письма, собирать документы, готовить черновики, следить за обновлениями, запускать повторяющиеся сценарии и работать в фоне. Разумеется, все это заточено под огромную экосистему Google.</p>
+                  <p>То есть он буквально может открыть Gmail, забрать письмо, посмотреть ваш календарь, собрать черновик в Google Docs, посмотреть данные в Google Sheets и вам обо всем доложить.</p>
+                  <p>Что-то подобное уже сейчас может делать Codex, если подключить все нужные коннекторы. Но интуитивно кажется, что именно в гугловской экосистеме такой агент может быть супер быстрым и супер эффективным.</p>
+                  <p>При этом Google отдельно говорит, что важные действия Spark должен согласовывать с человеком. Например, отправку письма, покупку или что-то связанное с деньгами.</p>
+                  <p>Сначала Spark дадут тестировщикам. Потом beta получат подписчики Google AI Ultra в США. Для Workspace-бизнесов тоже будет preview.</p>
+                </div>
+                <aside class="side-stack">
+                  <div class="source-card">
+                    <h4>Где читать / пробовать</h4>
+                    <div class="link-list">
+                      <a href="https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/" target="_blank" rel="noreferrer">Gemini updates</a>
+                      <a href="https://gemini.google.com/" target="_blank" rel="noreferrer">Gemini</a>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter reveal" id="daily">
+          <div class="chapter-grid">
+            <aside class="chapter-aside">
+              <div class="chapter-num">04</div>
+              <div class="chapter-label">Утренняя сводка</div>
+            </aside>
+            <div>
+              <h2>Daily Brief</h2>
+              <p class="chapter-lead">Следующая функция — Daily Brief. Это персональная утренняя сводка внутри Gemini.</p>
+              <div class="script">
+                <div class="script-main">
+                  <p>Gemini смотрит ваш календарь, почту и другие подключенные приложения и собирает короткий план дня: что сегодня важно, какие встречи, какие письма требуют внимания, что нужно не забыть и какие следующие шаги.</p>
+                  <p>Это не самый громкий анонс, но он хорошо показывает направление Google. Gemini хотят сделать точкой входа в рабочий день. С продуктовой точки зрения это очень правильный и очень крутой ход.</p>
+                  <p>Открыли утром — и у вас уже есть короткая сводка, что происходит. Daily Brief начнут раскатывать сначала только в США для Google AI Plus, Pro и Ultra.</p>
+                </div>
+                <aside class="side-stack">
+                  <div class="source-card">
+                    <h4>Где читать</h4>
+                    <div class="link-list">
+                      <a href="https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/#:~:text=Daily%20Brief%3A%20Start%20your%20day%20on%20the%20right%20foot" target="_blank" rel="noreferrer">Daily Brief</a>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter reveal" id="voice">
+          <div class="chapter-grid">
+            <aside class="chapter-aside">
+              <div class="chapter-num">05</div>
+              <div class="chapter-label">Workspace голосом</div>
+            </aside>
+            <div>
+              <h2>Голос в Gmail, Docs и Keep</h2>
+              <p class="chapter-lead">Google также показал новые голосовые функции в Workspace: Gmail Live, Docs Live и обновления для Keep.</p>
+              <div class="script">
+                <div class="script-main">
+                  <p>И это не диктовка в привычном смысле. Идея в том, что вы можете наговорить сырой поток мыслей, а Gemini превратит его в нормальный рабочий текст.</p>
+                  <p>В Docs можно голосом накидать идею, а Gemini соберет из этого черновик, структуру, письмо или документ. В Gmail можно спросить по почте: где номер рейса, что там по договору, кто последний писал по проекту. В Keep можно наговорить хаотичные мысли, а Gemini разложит их в заметки и списки.</p>
+                  <p>Мне кажется, это очень полезная штука. Потому что многие люди думают голосом. Мне, например, тоже проще что-то наговорить: так можно дать больше контекста и больше важных деталей. Если это будет автоматически превращаться в готовый артефакт — ну это прям супер.</p>
+                  <p>Доступ обещают летом для Google AI Pro и Ultra.</p>
+                </div>
+                <aside class="side-stack">
+                  <div class="source-card">
+                    <h4>Где читать</h4>
+                    <div class="link-list">
+                      <a href="https://blog.google/products-and-platforms/products/workspace/workspace-updates/" target="_blank" rel="noreferrer">Workspace updates</a>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter reveal" id="pics">
+          <div class="chapter-grid">
+            <aside class="chapter-aside">
+              <div class="chapter-num">06</div>
+              <div class="chapter-label">AI-редактор картинок</div>
+            </aside>
+            <div>
+              <h2>Google Pics</h2>
+              <p class="chapter-lead">Для изображений Google представил Google Pics. Это AI-редактор картинок на базе Nano Banana.</p>
+              <div class="script">
+                <div class="script-main">
+                  <p>В Google Pics можно выделять объекты, двигать их, менять размер, редактировать надписи прямо внутри картинки, переводить текст и быстро дорабатывать визуалы.</p>
+                  <p>Это может быть полезно для презентаций, баннеров, обложек, сторис, флаеров и постов в соцсетях. Особенно если все это будет нормально встроено в Slides и Drive.</p>
+                  <p>То есть вы делаете презентацию, видите, что картинка не подходит, и можете поправить ее прямо в рабочем процессе, не уходя в отдельный редактор.</p>
+                  <p>Сейчас Google Pics доступен ограниченной группе тестировщиков. Летом его обещают глобально для Google AI Pro и Ultra.</p>
+                </div>
+                <aside class="side-stack">
+                  <div class="source-card">
+                    <h4>Где читать</h4>
+                    <div class="link-list">
+                      <a href="https://workspace.google.com/products/pics/" target="_blank" rel="noreferrer">Google Pics</a>
+                      <a href="https://blog.google/products-and-platforms/products/workspace/workspace-updates/" target="_blank" rel="noreferrer">Workspace</a>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter reveal" id="search">
+          <div class="chapter-grid">
+            <aside class="chapter-aside">
+              <div class="chapter-num">07</div>
+              <div class="chapter-label">Поиск как интерфейс</div>
+            </aside>
+            <div>
+              <h2>AI Mode в Google Search</h2>
+              <p class="chapter-lead">Теперь про поиск. Google продолжает перестраивать Search вокруг AI Mode.</p>
+              <div class="script">
+                <div class="script-main">
+                  <p>Идея в том, что поиск должен не просто выдавать ссылки. Он должен разбираться в задаче и собирать ответ в удобном виде.</p>
+                  <p>Например, вы спрашиваете что-то сложное — устройство мотора, например — и вместо набора сайтов получаете объяснение, визуализацию или даже небольшой интерактивный интерфейс. Google называет это <strong>generative UI</strong>: интерфейс, который собирается под ваш запрос.</p>
+                  <p>Саму идею generative UI они представили еще в прошлом году, и вот только теперь начинают это внедрять.</p>
+                  <p>Еще появятся <strong>information agents</strong>. Это агенты, которые могут следить за темой в фоне: например, за скидкой на товар, подходящей квартирой, спортивными событиями, новостями или финансовыми изменениями.</p>
+                  <p>То есть поиск становится не только местом, где вы что-то ищете вручную. Он начинает работать как наблюдатель: вы задали интерес, а AI следит и сообщает, когда появляется что-то важное.</p>
+                </div>
+                <aside class="side-stack">
+                  <div class="source-card">
+                    <h4>Где читать / пробовать</h4>
+                    <div class="link-list">
+                      <a href="https://blog.google/products-and-platforms/products/search/search-io-2026/" target="_blank" rel="noreferrer">Search updates</a>
+                      <a href="https://google.com/ai" target="_blank" rel="noreferrer">AI Mode</a>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter reveal" id="antigravity">
+          <div class="chapter-grid">
+            <aside class="chapter-aside">
+              <div class="chapter-num">08</div>
+              <div class="chapter-label">Оркестр агентов</div>
+            </aside>
+            <div>
+              <h2>Antigravity 2.0</h2>
+              <p class="chapter-lead">Отдельно Google обновил Antigravity. Это их платформа для разработки с AI-агентами.</p>
+              <div class="script">
+                <div class="script-main">
+                  <p>Главное изменение в том, что Antigravity теперь пытаются сделать не просто редактором кода, а <strong>центром управления агентами</strong>. Можно запускать несколько агентов параллельно: один пишет код, другой проверяет ошибки. Это если говорить именно про разработку.</p>
+                  <p>Но на самом деле такие оркестры агентов можно использовать и в любой гуманитарной задаче.</p>
+                  <p>Появилось отдельное desktop-приложение, новая консольная версия Antigravity CLI, SDK для разработчиков и фоновые задачи. То есть агент может работать над длинной задачей, а вы не обязаны все время держать процесс открытым перед глазами.</p>
+                  <p>И еще одно обновление, связанное с вайб-кодингом: Google AI Studio теперь умеет собирать нативные Android-приложения по промпту. Раньше там уже можно было делать веб-приложения, а теперь вы описываете Android-приложение, AI Studio генерирует проект, запускает его в эмуляторе прямо в браузере, а потом приложение можно поставить на телефон или отправить в тестовую публикацию Google Play.</p>
+                </div>
+                <aside class="side-stack">
+                  <div class="source-card">
+                    <h4>Где читать / пробовать</h4>
+                    <div class="link-list">
+                      <a href="https://antigravity.google/" target="_blank" rel="noreferrer">Antigravity</a>
+                      <a href="https://blog.google/innovation-and-ai/technology/developers-tools/google-ai-studio-io-2026/" target="_blank" rel="noreferrer">AI Studio</a>
+                      <a href="https://developers.googleblog.com/en/all-the-news-from-the-google-io-2026-developer-keynote/" target="_blank" rel="noreferrer">Keynote</a>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter reveal" id="youtube">
+          <div class="chapter-grid">
+            <aside class="chapter-aside">
+              <div class="chapter-num">09</div>
+              <div class="chapter-label">YouTube + AI</div>
+            </aside>
+            <div>
+              <h2>YouTube: Ask YouTube и Omni Remix</h2>
+              <p class="chapter-lead">YouTube тоже получил AI-обновления.</p>
+              <div class="script">
+                <div class="script-main">
+                  <p>Первое — <strong>Ask YouTube</strong>. Это разговорный поиск по YouTube. Вы задаете вопрос, уточняете детали, а YouTube собирает ответ на основе роликов и Shorts.</p>
+                  <p>Вообще мы часто идем в YouTube, чтобы разобраться в какой-то теме. Теперь в этот процесс тоже встроили AI. Пока Ask YouTube доступен Premium-пользователям 18+ в США.</p>
+                  <p>Вообще, Gemini в YouTube внедряют уже несколько месяцев. Видно, что у многих начала появляться кнопочка Gemini рядом с видео: можно делать короткие саммари, можно задавать вопросы по видео.</p>
+                  <p>Второе — <strong>Omni Remix для Shorts</strong>. Можно взять исходный Short и с помощью Gemini Omni изменить сцену, стиль, добавить промпт или изображение, но сохранить контекст оригинального ролика.</p>
+                  <p>Для коротких видео это может быть очень мощная штука. Потому что ремиксы и так хорошо работают в Shorts, TikTok и Reels. А теперь их можно будет делать через AI.</p>
+                </div>
+                <aside class="side-stack">
+                  <div class="source-card">
+                    <h4>Где читать / пробовать</h4>
+                    <div class="link-list">
+                      <a href="https://blog.youtube/news-and-events/youtube-news-google-io-2026/" target="_blank" rel="noreferrer">YouTube Blog</a>
+                      <a href="https://www.youtube.com/new" target="_blank" rel="noreferrer">YouTube New</a>
+                      <a href="https://www.youtube.com/creators/" target="_blank" rel="noreferrer">Creators</a>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chapter reveal" id="glasses">
+          <div class="chapter-grid">
+            <aside class="chapter-aside">
+              <div class="chapter-num">10</div>
+              <div class="chapter-label">AI в реальном мире</div>
+            </aside>
+            <div>
+              <h2>Умные очки с Gemini</h2>
+              <p class="chapter-lead">Еще Google показал умные очки. Следующее поколение.</p>
+              <div class="script">
+                <div class="script-main">
+                  <p>Будет два типа. <strong>Audio glasses</strong> — без экрана, где Gemini отвечает голосом в ухо. И <strong>display glasses</strong> — уже с информацией на дисплее.</p>
+                  <p>Первые audio glasses обещают осенью. Очки смогут отвечать на вопросы о том, что вы видите, переводить речь, строить навигацию, управлять звонками и сообщениями, делать фото и видео.</p>
+                  <p>Во времена Google Glass это выглядело слишком рано. Продукт был очень сырой. Сейчас у Google наконец есть AI-мозг, который делает такую идею намного практичнее.</p>
+                </div>
+                <aside class="side-stack">
+                  <div class="source-card">
+                    <h4>Где читать</h4>
+                    <div class="link-list">
+                      <a href="https://blog.google/products-and-platforms/platforms/android/android-xr-io-2026/" target="_blank" rel="noreferrer">Android XR</a>
+                      <a href="https://www.android.com/xr/" target="_blank" rel="noreferrer">XR сайт</a>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="subscribe">
+      <div class="wrap">
+        <div class="subscribe-box reveal">
+          <div>
+            <h2>Подписывайтесь на Web3nity</h2>
+            <p>Больше разборов AI-продуктов, инструментов и новостей из мира AI.</p>
+          </div>
+          <div class="subscribe-links link-list">
+            <a href="https://t.me/web3nity_channel" target="_blank" rel="noreferrer">Telegram</a>
+            <a href="https://www.youtube.com/@Web3nity/videos" target="_blank" rel="noreferrer">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const revealItems = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    const sections = [...document.querySelectorAll('article[id], section[id]')];
+    const navLinks = [...document.querySelectorAll('.nav-list a, .dot-btn')];
+    const activeObserver = new IntersectionObserver((entries) => {
+      const current = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!current) return;
+      navLinks.forEach((link) => {
+        link.classList.toggle('is-active', link.getAttribute('href') === `#${current.target.id}`);
+      });
+    }, { rootMargin: '-28% 0px -58% 0px', threshold: [0.1, 0.35, 0.7] });
+    sections.forEach((section) => activeObserver.observe(section));
+  </script>
+</body>
+</html>
